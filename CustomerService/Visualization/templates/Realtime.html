@@ -1,0 +1,220 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+
+    <head><style> body { background: #ecf7fe !important; } /* Adding !important forces the browser to overwrite the default style applied by Bootstrap */
+</style><style> 	
+
+.amcharts-graph-graph2 .amcharts-graph-stroke {
+  stroke-dasharray: 4px 5px;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+  -webkit-animation: am-moving-dashes 1s linear infinite;
+  animation: am-moving-dashes 1s linear infinite;
+}
+
+@-webkit-keyframes am-moving-dashes {
+  100% {
+    stroke-dashoffset: -28px;
+  }
+}
+@keyframes am-moving-dashes {
+  100% {
+    stroke-dashoffset: -28px;
+  }
+}
+										</style>
+    
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <title>Dashboard</title>
+        <link rel="stylesheet" href="/static/images/style.css" type="text/css">
+        <script src="/static/amcharts/amcharts.js" type="text/javascript"></script>
+       <link href="css/bootstrap.min.css" rel="stylesheet">
+       
+     <script src="http://www.amcharts.com/lib/3/pie.js"></script>
+        <script src="/static/amcharts/themes/chalk.js"></script>
+        <script src="/static/amcharts/serial.js" type="text/javascript"></script>
+        <script src="/static/amcharts/plugins/dataloader/dataloader.min.js" type="text/javascript"></script>
+        		<script src="/static/amcharts/plugins/export/export.js"></script>
+		<link  type="text/css" href="/static/amcharts/plugins/export/export.css" rel="stylesheet">
+        
+      <script>  var chart1;
+        var chart2;
+        var chart3;
+
+        makeCharts("light", "");
+
+        // Theme can only be applied when creating chart instance - this means
+        // that if you need to change theme at run time, youhave to create whole
+        // chart object once again.
+
+        function makeCharts(theme, bgColor, bgImage){
+
+            if(chart1){
+                chart1.clear();
+       
+
+            // background
+            if(document.body){
+                document.body.style.backgroundColor = bgColor;
+                document.body.style.backgroundImage = "url(" + bgImage + ")";
+            }
+
+
+           
+         
+        //--------------------------------------
+      }
+///////// line chart
+
+
+
+         var chart6 = AmCharts.makeChart("negative", {
+        	 "titles": [{
+                 "text": "Positive Impression Reach"
+             }],
+  "type": "serial",
+  "addClassNames": true,
+  "autoMargins": true,
+  "marginLeft": 0,
+  "marginRight": 0,
+  "marginTop": 0,
+  "marginBottom": 0,
+  "balloon": {
+    "adjustBorderColor": false,
+    "horizontalPadding": 10,
+    "verticalPadding": 8,
+    "color": "#ffffff"
+  },
+
+  "dataLoader": {
+      "url": "/impression/data.json",
+      "format": "json"
+     
+    },
+  "valueAxes": [{
+    "axisAlpha": 0,
+    "position": "left"
+  }],
+  "startDuration": 1,
+  "graphs": [{
+    
+  }, {
+    "id": "graph2",
+    "balloonText": "<span style='font-size:12px;'>[[title]] on [[category]]:<br><span style='font-size:20px;'>[[value]]</span> [[additional]]</span>",
+    "bullet": "round",
+    "lineThickness": 3,
+    "bulletSize": 7,
+    "bulletBorderAlpha": 1,
+    "bulletColor": "#FFFFFF",
+    "useLineColorForBulletBorder": true,
+    "bulletBorderThickness": 3,
+    "fillAlphas": 0,
+    "lineAlpha": 1,
+    "title": "Reach",
+    "valueField": "Reach"
+  }],
+  "categoryField": "Date",
+  "categoryAxis": {
+    "gridPosition": "start",
+    "axisAlpha": 0,
+    "tickLength": 0
+  },legend: {
+      useGraphSettings: true
+  },
+  "export": {
+    "enabled": true
+  }
+});
+
+var chart6 = AmCharts.makeChart("line", {
+	 "titles": [{
+         "text": "Negative Impression Reach"
+     }],
+"type": "serial",
+"addClassNames": true,
+"autoMargins": true,
+"marginLeft": 0,
+"marginRight": 0,
+"marginTop": 0,
+"marginBottom": 0,
+"balloon": {
+"adjustBorderColor": false,
+"horizontalPadding": 10,
+"verticalPadding": 8,
+"color": "#ffffff"
+},
+
+"dataLoader": {
+"url": "/negimpression/data.json",
+"format": "json"
+
+},
+"valueAxes": [{
+"axisAlpha": 0,
+"position": "left"
+}],
+"startDuration": 1,
+"graphs": [{
+"alphaField": "alpha",
+
+}, {
+"id": "graph2",
+"balloonText": "<span style='font-size:12px;'>[[title]] on [[category]]:<br><span style='font-size:20px;'>[[value]]</span> [[additional]]</span>",
+"bullet": "round",
+"lineThickness": 3,
+"bulletSize": 7,
+"bulletBorderAlpha": 1,
+"bulletColor": "#FFFFFF",
+"useLineColorForBulletBorder": true,
+"bulletBorderThickness": 3,
+"fillAlphas": 0,
+"lineAlpha": 1,
+"title": "Reach",
+"valueField": "Reach"
+}],
+"categoryField": "Date",
+"categoryAxis": {
+"gridPosition": "start",
+"axisAlpha": 0,
+"tickLength": 0
+},legend: {
+useGraphSettings: true
+},
+"export": {
+"enabled": true
+}
+});
+}	
+        </script>
+         <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    </head>
+
+    <body style="font-size:15px;"><nav class="navbar navbar-default	">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#"></a>
+    </div>
+    <div>
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="/vis">Dashboard</a></li>
+        <li><a href="/realtimescore">Impression Reached</a></li> 
+      </ul>
+    </div>
+  </div>
+</nav>
+        
+       
+        
+        <table><tr>
+        <tr><td><div id="line"style="width: 600px; height: 450px;" ></div></td>
+        
+                <td><div id="negative" style="width: 600px; height: 450px;"></div></td>
+        
+        </tr>
+        
+               </table>
+    </body>
+
+</html>
